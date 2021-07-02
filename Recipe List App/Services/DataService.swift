@@ -9,7 +9,7 @@ import Foundation
 
 class DataService {
     
-    static func getLocalData() -> [Recipe] {
+    static func getLocalData() -> [RecipeJSON] {
         
         // Parse local json file
         
@@ -18,7 +18,7 @@ class DataService {
         
         // Check if pathString is not nil, otherwise...
         guard pathString != nil else {
-            return [Recipe]()
+            return [RecipeJSON]()
         }
         
         // Create a url object
@@ -33,7 +33,7 @@ class DataService {
             
             do {
                 
-                let recipeData = try decoder.decode([Recipe].self, from: data)
+                let recipeData = try decoder.decode([RecipeJSON].self, from: data)
                 
                 // Add the unique IDs
                 for r in recipeData {
@@ -58,7 +58,7 @@ class DataService {
             print(error)
         }
         
-        return [Recipe]()
+        return [RecipeJSON]()
     }
     
 }

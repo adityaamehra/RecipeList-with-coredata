@@ -9,7 +9,7 @@ import Foundation
 
 class RecipeModel: ObservableObject {
     
-    @Published var recipes = [Recipe]()
+    @Published var recipes = [RecipeJSON]()
     
     init() {
         
@@ -17,7 +17,7 @@ class RecipeModel: ObservableObject {
         self.recipes = DataService.getLocalData()
     }
     
-    static func getPortion(ingredient:Ingredient, recipeServings:Int, targetServings:Int) -> String {
+    static func getPortion(ingredient:IngredientJSON, recipeServings:Int, targetServings:Int) -> String {
         
         var portion = ""
         var numerator = ingredient.num ?? 1

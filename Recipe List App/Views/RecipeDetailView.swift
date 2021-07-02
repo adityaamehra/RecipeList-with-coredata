@@ -9,7 +9,7 @@ import SwiftUI
 
 struct RecipeDetailView: View {
     
-    var recipe:Recipe
+    var recipe:RecipeJSON
     
     @State var selectedServingSize = 2
     
