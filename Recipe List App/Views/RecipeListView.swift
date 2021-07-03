@@ -9,8 +9,23 @@ import SwiftUI
 
 struct RecipeListView: View {
     @Environment(\.managedObjectContext) private var viewContext
-    @EnvironmentObject var model:RecipeModel
+    // @EnvironmentObject var model:RecipeModel
+    @FetchRequest(sortDescriptors: [NSSortDescriptor(key: "name", ascending: true)])
+    private var recipes:FetchedResults<Recipe>
+    @State private var filterBy = ""
     
+    private var filteredRecipes:[Recipe]{
+        if filterBy.trimmingCharacters(in: .whitespacesAndNewlines) == ""{
+            // No filter text
+            return Array(recipes)
+        }
+        else{
+            // Some filtered text
+            return recipes.filter { r in
+                return r.name.contains(filterBy)
+            }
+        }
+    }
     var body: some View {
         
         NavigationView {
@@ -21,9 +36,10 @@ struct RecipeListView: View {
                     .padding(.top, 40)
                     .font(Font.custom("Avenir Heavy", size: 24))
                 
+                SearchBarView(text: $filterBy).padding([.trailing , .bottom])
                 ScrollView {
                     LazyVStack (alignment: .leading) {
-                        ForEach(model.recipes) { r in
+                        ForEach(filteredRecipes) { r in
                             
                             NavigationLink(
                                 destination: RecipeDetailView(recipe:r),
@@ -60,7 +76,10 @@ struct RecipeListView: View {
                 
             }
             .navigationBarHidden(true)
-            .padding(.leading)
+            .padding(.leading).onTapGesture {
+                // Resign first responder
+                UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+            }
         }
     }
 }

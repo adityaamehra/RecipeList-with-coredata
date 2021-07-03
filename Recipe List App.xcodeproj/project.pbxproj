@@ -27,6 +27,7 @@
 		88AA2FA9268F6BCD0029C1CF /* Ingredient+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88AA2FA5268F6BCD0029C1CF /* Ingredient+CoreDataProperties.swift */; };
 		88AA2FCB268F71180029C1CF /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88AA2FCA268F71180029C1CF /* Persistence.swift */; };
 		88AA2FED268F74E10029C1CF /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88AA2FEC268F74E10029C1CF /* Constants.swift */; };
+		88B8691426903FC800B24C0A /* SearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B8691326903FC800B24C0A /* SearchBarView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +53,7 @@
 		88AA2FA5268F6BCD0029C1CF /* Ingredient+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Ingredient+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		88AA2FCA268F71180029C1CF /* Persistence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		88AA2FEC268F74E10029C1CF /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		88B8691326903FC800B24C0A /* SearchBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +116,7 @@
 				831EE68125B0C74D00BACCDD /* RecipeListView.swift */,
 				831EE6C525B0E0A200BACCDD /* RecipeDetailView.swift */,
 				836E10FF25E43D36008B0BAF /* RecipeHighlights.swift */,
+				88B8691326903FC800B24C0A /* SearchBarView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -245,6 +248,7 @@
 				836E10F525DED2BF008B0BAF /* Rational.swift in Sources */,
 				88AA2FA6268F6BCD0029C1CF /* Recipe+CoreDataClass.swift in Sources */,
 				831EE6A325B0C99A00BACCDD /* RecipeModel.swift in Sources */,
+				88B8691426903FC800B24C0A /* SearchBarView.swift in Sources */,
 				831EE68225B0C74D00BACCDD /* RecipeListView.swift in Sources */,
 				88AA2FA9268F6BCD0029C1CF /* Ingredient+CoreDataProperties.swift in Sources */,
 				831EE68025B0C74D00BACCDD /* Recipe_List_App.swift in Sources */,
