@@ -26,6 +26,7 @@
 		88AA2FA8268F6BCD0029C1CF /* Ingredient+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88AA2FA4268F6BCD0029C1CF /* Ingredient+CoreDataClass.swift */; };
 		88AA2FA9268F6BCD0029C1CF /* Ingredient+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88AA2FA5268F6BCD0029C1CF /* Ingredient+CoreDataProperties.swift */; };
 		88AA2FCB268F71180029C1CF /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88AA2FCA268F71180029C1CF /* Persistence.swift */; };
+		88AA2FED268F74E10029C1CF /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88AA2FEC268F74E10029C1CF /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +51,7 @@
 		88AA2FA4268F6BCD0029C1CF /* Ingredient+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Ingredient+CoreDataClass.swift"; sourceTree = "<group>"; };
 		88AA2FA5268F6BCD0029C1CF /* Ingredient+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Ingredient+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		88AA2FCA268F71180029C1CF /* Persistence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
+		88AA2FEC268F74E10029C1CF /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -158,6 +160,7 @@
 			isa = PBXGroup;
 			children = (
 				836E10F425DED2BF008B0BAF /* Rational.swift */,
+				88AA2FEC268F74E10029C1CF /* Constants.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -233,6 +236,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				831EE69D25B0C85E00BACCDD /* Recipe.swift in Sources */,
+				88AA2FED268F74E10029C1CF /* Constants.swift in Sources */,
 				88AA2FCB268F71180029C1CF /* Persistence.swift in Sources */,
 				831EE6C625B0E0A200BACCDD /* RecipeDetailView.swift in Sources */,
 				88AA2FA8268F6BCD0029C1CF /* Ingredient+CoreDataClass.swift in Sources */,

@@ -4,19 +4,74 @@
 //
 //  Created by Christopher Ching on 2021-01-14.
 //
-
+import UIKit
 import Foundation
 
 class RecipeModel: ObservableObject {
-    
+    // Reference to the managed object context
+    let managedObjectContext = PersistenceController.shared.container.viewContext
     @Published var recipes = [Recipe]()
     
     init() {
         
-        // Create an instance of data service and get the data
-        self.recipes = DataService.getLocalData()
+        // Check if we have preloaded the data into core data
+        checkLoadedData()
     }
     
+    func checkLoadedData(){
+        // Check local storage for the flag
+        
+        let status = UserDefaults.standard.bool(forKey: Constants.isDataPreloaded)
+        
+        // if it's false , then we parse local json and preload into Core Data
+        
+        if status == false{
+            preloadLocalData()
+        }
+        
+    }
+    func preloadLocalData(){
+        // Parse the local JSON file
+        let localRecipes = DataService.getLocalData()
+        // Create core Data objects
+        for r in localRecipes{
+            // Create a core data objects
+           let recipe = Recipe(context: managedObjectContext)
+            // Set its properties
+            recipe.cookTime = r.cookTime
+            recipe.directions = r.directions
+            recipe.featured = r.featured
+            recipe.highlights = r.highlights
+            recipe.id = UUID()
+            recipe.image = UIImage(named: r.image)?.jpegData(compressionQuality: 1.0)
+            recipe.name = r.name
+            recipe.prepTime = r.prepTime
+            recipe.servings = r.servings
+            recipe.summary = r.description
+            recipe.totalTime = r.totalTime
+            // Set the ingredients
+            for i in r.ingredients{
+                // Create a core data ingredient
+                let ingredient = Ingredient(context: managedObjectContext)
+                ingredient.id = UUID()
+                ingredient.name = i.name
+                ingredient.num = i.num ?? 1
+                ingredient.denom = i.denom ?? 1
+                ingredient.unit = i.unit
+                // The way we add this to the recipe
+                recipe.addToIngredients(ingredient)
+            }
+        }
+        // Save into Core Data
+        do{
+        try managedObjectContext.save()
+            // Set local storage flag
+            UserDefaults.standard.setValue(true, forKey: Constants.isDataPreloaded)
+        }
+        catch{
+            print("No data for you")
+        }
+    }
     static func getPortion(ingredient:Ingredient, recipeServings:Int, targetServings:Int) -> String {
         
         var portion = ""
@@ -73,7 +128,7 @@ class RecipeModel: ObservableObject {
                 }
             }
             
-            portion += ingredient.num == nil && ingredient.denom == nil ? "" : " "
+            portion += (ingredient.num != 0) && ingredient.denom == nil ? "" : " "
             
             return portion + unit
         }
